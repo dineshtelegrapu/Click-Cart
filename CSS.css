@@ -1,3 +1,15 @@
 div.h1{
-    color:chocolate
+    color:chocolate;
+}
+div.h2{
+    color: black;
+}
+input.SearchBar{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
