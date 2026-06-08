@@ -3,19 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="Css.css">
-
+    <title>ShopEase</title>
 </head>
 <body>
-    <div class="Header">
-        <input type="text" placeholder="Search for products..." class="SearchBar">
-        <h1>Click Cart</h1>
-        <p>Shop Smart, Click Cart!</p>
-    </div>
-    <div class="Main">
-        <h2>Offers</h2>
-        <a href="shop.html" class="ShopNow">Shop Now</a>
-    </div>
+
+    <nav>
+        <h2>Clik-Cart</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to Clik-Cart</h1>
+        <p>Discover Amazing Products at Great Prices</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="">
+                <div class="card-content">
+                    <h3>Running Shoes</h3>
+                    <p class="price">$49</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="">
+                <div class="card-content">
+                    <h3>Smart Watch</h3>
+                    <p class="price">$99</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="">
+                <div class="card-content">
+                    <h3>Headphones</h3>
+                    <p class="price">$79</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="">
+                <div class="card-content">
+                    <h3>Smart Phone</h3>
+                    <p class="price">$499</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Clik-Cart. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
