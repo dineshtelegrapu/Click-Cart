@@ -147,7 +147,7 @@ body{
     padding:50px 10%;
 }
 
-.products input[type="text"]{
+.products nav input[type="text"]{
     width:100%;
     padding:10px;
     margin-bottom:60px;
