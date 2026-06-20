@@ -71,14 +71,24 @@ nav ul li a{
     text-decoration:none;
 }
 
-.breadcrumb{
+div.breadcrumb {
+    background:rgb(100, 100, 100);
     display:flex;
-    justify-content:left;
-    align-items:center;
-    height: 50px;
-    background: rgb(100, 100, 100);
+    padding:15px 7%;
+}
+
+.breadcrumb ul {
+    display:flex;
+    list-style:none;
+}
+
+.breadcrumb ul li {
+    margin: 20px;
+}
+
+.breadcrumb ul li a {
     color: white;
-    padding: 10px;
+    text-decoration: none;
 }
 
 .products{
