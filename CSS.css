@@ -71,10 +71,10 @@ nav ul li a{
     text-decoration:none;
 }
 
-div.breadcrumb {
+div.breadcrumb{
     background:rgb(100, 100, 100);
     display:flex;
-    padding:15px 7%;
+    padding:15px 7.5%;
 }
 
 .breadcrumb ul {
@@ -83,12 +83,18 @@ div.breadcrumb {
 }
 
 .breadcrumb ul li {
-    margin: 20px;
+    margin: 10px;
 }
 
-.breadcrumb ul li a {
+.breadcrumb ul li a{
+    font-size: 1.4rem;
     color: white;
     text-decoration: none;
+}
+
+.filter-section p{
+    position: absolute;
+    background-color: white;
 }
 
 .products{
