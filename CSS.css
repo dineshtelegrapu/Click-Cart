@@ -244,3 +244,19 @@ footer a{
 .btn:hover{
     background:#ff6600;
 }
+
+/*cart section*/
+
+.cart-list {
+    background: #222;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-list p{
+    font-size: 2rem;
+    font-weight:bold;
+    margin: 20px;
+    color: white;
+    font-family:Arial, sans-serif;
+}
