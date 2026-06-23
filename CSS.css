@@ -260,3 +260,15 @@ footer a{
     color: white;
     font-family:Arial, sans-serif;
 }
+
+.cart-card{
+    background: white;
+    gap: 10px;
+}
+
+.cart-card-info{
+    display: flex;
+    margin-top: 10px;
+    background: white;
+    border: #222;
+}
