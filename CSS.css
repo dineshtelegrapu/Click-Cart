@@ -262,13 +262,22 @@ footer a{
 }
 
 .cart-card{
-    background: white;
-    gap: 10px;
+    margin: 50px;
+    margin-right: 90px;
+    border-color: #222;
 }
 
-.cart-card-info{
+.cart-card-info {
     display: flex;
-    margin-top: 10px;
-    background: white;
-    border: #222;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: blue;
+    height: 120px;
+    margin-top: 50px;
+}
+
+.cart-card-info a{
+    text-decoration: none;
+    color: white;
 }
