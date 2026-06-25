@@ -265,19 +265,23 @@ footer a{
     margin: 50px;
     margin-right: 90px;
     border-color: #222;
+    margin-top: 150px;
+    margin-right: 250px;
 }
 
 .cart-card-info {
     display: flex;
-    padding: 1em;
-    text-decoration: none;
+    align-items: center;
     border-radius: 20px;
     background-color: blue;
-    height: 120px;
+    height: 170px;
     margin-top: 50px;
 }
 
 .cart-card-info a{
     text-decoration: none;
     color: white;
+    margin-left: 50px;
+    font-size: large;
+    font-weight: bold;
 }
