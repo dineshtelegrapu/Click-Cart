@@ -285,3 +285,13 @@ footer a{
     font-size: large;
     font-weight: bold;
 }
+
+.buying-process{
+    background: #ff6600;
+    justify-content: center;
+}
+
+.buying-process a{
+    text-decoration: none;
+    color: whitesmoke;
+}
