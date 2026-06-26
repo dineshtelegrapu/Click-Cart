@@ -247,26 +247,24 @@ footer a{
 
 /*cart section*/
 
-.cart-list {
+.cart-head {
     background: #222;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
-.cart-list p{
-    font-size: 2rem;
+.cart-head p{
+    font-size: 1.5rem;
     font-weight:bold;
-    margin: 20px;
+    padding: 25px 10%;
     color: white;
     font-family:Arial, sans-serif;
 }
 
 .cart-card{
-    margin: 50px;
-    margin-right: 90px;
+    margin: 35px;
     border-color: #222;
-    margin-top: 150px;
-    margin-right: 250px;
+    margin-top: 80px;
 }
 
 .cart-card-info {
@@ -275,7 +273,7 @@ footer a{
     border-radius: 20px;
     background-color: blue;
     height: 170px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .cart-card-info a{
@@ -289,6 +287,7 @@ footer a{
 .buying-process{
     background: #ff6600;
     justify-content: center;
+    margin: 20px;
 }
 
 .buying-process a{
