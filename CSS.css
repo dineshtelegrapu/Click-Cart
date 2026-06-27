@@ -284,13 +284,24 @@ footer a{
     font-weight: bold;
 }
 
-.buying-process{
-    background: #ff6600;
-    justify-content: center;
-    margin: 20px;
+.buying-process-card{
+    margin-top: 90px;
 }
 
-.buying-process a{
+.buying-process-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: blue;
+    height: 170px;
+    margin-top: 25px;
+}
+
+.buying-process-info a{
     text-decoration: none;
     color: whitesmoke;
+    background-color: #ff6600;
+    padding: 10px;
+    border-radius: 5px;
 }
