@@ -261,8 +261,11 @@ footer a{
     font-family:Arial, sans-serif;
 }
 
+.cart-products{
+    padding: 5px 5%;
+}
+
 .cart-card{
-    margin: 35px;
     border-color: #222;
     margin-top: 80px;
 }
@@ -276,12 +279,15 @@ footer a{
     margin-top: 25px;
 }
 
-.cart-card-info a{
+.cart-card-info h3{
     text-decoration: none;
-    color: white;
-    margin-left: 50px;
+    padding: 10%;
     font-size: large;
     font-weight: bold;
+}
+
+.cart-card-info p{
+    opacity: 75%;
 }
 
 .buying-process-card{
@@ -289,13 +295,12 @@ footer a{
 }
 
 .buying-process-info{
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     background-color: blue;
-    height: 170px;
-    margin-top: 25px;
+    height: 200px;
 }
 
 .buying-process-info a{
