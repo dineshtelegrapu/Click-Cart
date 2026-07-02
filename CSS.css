@@ -307,6 +307,8 @@ footer a{
     color:white;
     text-align: center;
     justify-content: center;
+    margin-top: auto;
+    margin-left: auto;
     background:#ff6600;
     padding:8px 20px;
     border-radius:5px;
@@ -315,7 +317,7 @@ footer a{
 .buying-process-card{
     margin-top:90px;
     margin-bottom: 25px;
-    padding:10px 20%;
+    padding:10px 5%;
 }
 
 .buying-process-info{
