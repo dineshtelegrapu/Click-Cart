@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css.css">
     <title>Your-Cart</title>
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     
     <div class="cart-head">
         <p>Cart</p>
         <input type="text" placeholder="Search products..." class="search-bar">
+        <div class="cart-icon-container">
+            <img src="cart-icon.png" alt="cart" class="cart-icon">
+            <h4 class="cart-card-count">0</h4>
+        </div>
     </div>
 
     <section class="cart-products">
@@ -21,16 +25,18 @@
             <div class="cart-card-info">
                 <h3 href="#">Laptop</h3>
                 <p>High-performance laptop for work and gaming.</p>
-                <a href="#">Add 1 +</a>
+                <h4 id="cart-count" class="cart-count">1</h4>
+                <a class="add-to-cart" href="#" onclick="play('cart-count')">Add 1 +</a>
             </div>
         </div>
 
-        <div class="card-card">
+        <div class="cart-card">
             <img src="wallpaper.jpg">
             <div class="cart-card-info">
                 <h3 href="#">Smartphone</h3>
                 <p>Latest smartphone with advanced camera.</p>
-                <a href="#">Add 1 +</a>
+                <h4 id="cart-count" class="cart-count">1</h4>
+                <a class="add-to-cart" href="#" onclick="play('cart-count')">Add 1 +</a>
             </div>
         </div>
 
@@ -39,7 +45,8 @@
             <div class="cart-card-info">
                 <h3 href="#">wireless Headphones</h3>
                 <p>Noise-cancelling premium sound quality.</p>
-                <a href="#">Add 1 +</a>
+                <h4 id="cart-count" class="cart-count">1</h4>
+                <a class="add-to-cart" href="#" onclick="play('cart-count')">Add 1 +</a>
             </div>
         </div>
 
@@ -48,7 +55,8 @@
             <div class="cart-card-info">
                 <h3 href="#">Smart Watch</h3>
                 <p>Track fitness and notifications on the go.</p>
-                <a href="#">Add 1 +</a>
+                <h4 id="cart-count" class="cart-count">1</h4>
+                <a class="add-to-cart" href="#" onclick="play('cart-count')">Add 1 +</a>
             </div>
         </div>
 
