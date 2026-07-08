@@ -266,32 +266,33 @@ footer a{
 }
 
 .cart-card{
-    border-radius:20px;
-    margin-top:10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 95%;
+    padding: 15px;
+    margin: 50px auto;
+    box-shadow: 5px 5px 8px #b7b7b7;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.cart-card:hover{
+    transform:translateY(-8px);
 }
 
 .cart-card img{
-    width:auto;
-    height: auto;
-    object-fit:cover;
-    border-radius:20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .cart-card-info{
-    display:flex;
-    flex-direction:column;
-    align-items:left;
-    background: whitesmoke;
-    box-shadow:0 4px 10px #bdbdbd;
-    border-radius:20px;
-    height:170px;
-    padding:20px;
-    margin-top:25px;
-    transition:0.3s;
-}
-
-.cart-card-info:hover{
-    transform:translateY(-8px);
+    flex: 1;
 }
 
 .cart-card-info h3{
@@ -301,6 +302,13 @@ footer a{
 
 .cart-card-info p{
     opacity:0.75;
+    margin-bottom: 10px;
+}
+
+.cart-count{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .cart-card-info a{
@@ -308,15 +316,13 @@ footer a{
     color:white;
     text-align: center;
     justify-content: center;
-    margin-top: auto;
-    margin-left: auto;
     background:#ff6600;
     padding:8px 20px;
     border-radius:5px;
 }
 
 .buying-process-card{
-    margin-top:90px;
+    margin-top:60px;
     margin-bottom: 25px;
     padding:10px 5%;
 }
