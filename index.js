@@ -17,21 +17,14 @@ searchBar.addEventListener("input", function () {
 
 // Cart counter
 const buttons = document.querySelectorAll(".add-to-cart");
-const cartIconCount = document.querySelector(".cart-card-count");
 
-let totalItems = 0;
 buttons.forEach(button => {
     button.addEventListener("click", function (event) {
         event.preventDefault();
 
         const card = this.closest(".cart-card");
-
         // Increase card's quantity for the specific product on click
         const count = card.querySelector(".cart-count");
         count.textContent = Number(count.textContent) + 1;
-
-        // Increase total cart count
-        totalItems++;
-        cartIconCount.textContent = totalItems;
     });
 });
