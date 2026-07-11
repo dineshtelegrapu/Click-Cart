@@ -23,8 +23,14 @@ buttons.forEach(button => {
         event.preventDefault();
 
         const card = this.closest(".cart-card");
-        // Increase card's quantity for the specific product on click
         const count = card.querySelector(".cart-count");
-        count.textContent = Number(count.textContent) + 1;
+        // Increase card's quantity for the specific product on click upto a maximum limit of 10
+        let currentCount = Number(count.textContent);
+
+        if (currentCount < 10) {
+            count.textContent = currentCount + 1;
+        } else {
+            alert("Maximum quantity (10) reached!");
+        }
     });
 });
