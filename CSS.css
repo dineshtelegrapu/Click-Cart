@@ -292,7 +292,9 @@ footer a{
 }
 
 .cart-card-info{
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .cart-card-info h3{
@@ -321,9 +323,11 @@ footer a{
     border-radius:5px;
 }
 
-.add-to-cart{
-    margin-left: 50%;
+.add-to-cart {
+    margin-left: auto;
 }
+
+/* Buying Section */
 
 .buying-process-card{
     margin-top:60px;
