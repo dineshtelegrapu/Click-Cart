@@ -1,11 +1,11 @@
 // Search bar
 const searchBar = document.querySelector(".search-bar");
 const products = document.querySelectorAll(".cart-card");
-
 searchBar.addEventListener("input", function () {
     const searchText = this.value.toLowerCase();
     products.forEach(product => {
         const productName = product.querySelector("h3").textContent.toLowerCase();
+
         if (productName.includes(searchText)) {
             product.style.display = "block";
         } else {
@@ -14,32 +14,48 @@ searchBar.addEventListener("input", function () {
     });
 });
 
-// Total items display
+// Buying summary
 const totalItems = document.getElementById("total-items");
+const totalAmount = document.getElementById("total-amount");
+const cartIconCount = document.querySelector(".cart-card-count");
 
-// Add to Cart buttons
+// Add to Cart button
 const buttons = document.querySelectorAll(".add-to-cart");
-function updateTotalItems() {
-    let total = 0;
-    document.querySelectorAll("total-items").forEach(count => {
-        total += Number(count.textContent);
+
+// Update total items and amount in buying summary and cart icon
+function updateSummary() {
+
+    let items = 0;
+    let amount = 0;
+
+    document.querySelectorAll(".cart-card").forEach(card => {
+
+        const quantity = Number(card.querySelector(".cart-count").textContent);
+        const price = Number(card.dataset.price);
+        items += quantity;
+        amount += quantity * price;
+
     });
-    totalItems.textContent = total;
+    totalItems.textContent = items;
+    totalAmount.textContent = "$" + amount;
+    cartIconCount.textContent = items;
 }
 
+// Add item to cart
 buttons.forEach(button => {
+
     button.addEventListener("click", function (event) {
         event.preventDefault();
         const card = this.closest(".cart-card");
         const count = card.querySelector(".cart-count");
-        let currentCount = Number(count.textContent);
-
-        if (currentCount < 10) {
-            count.textContent = currentCount + 1;
-            updateTotalItems();
+        let quantity = Number(count.textContent);
+        if (quantity < 10) {
+            quantity++;
+            count.textContent = quantity;
         }
+        updateSummary();
     });
 });
 
-// Setting initial total items when page loads
-updateTotalItems();
+// Initial summary
+updateSummary();
