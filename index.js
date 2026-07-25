@@ -19,7 +19,7 @@ const totalItems = document.getElementById("total-items");
 const totalAmount = document.getElementById("total-amount");
 const cartIconCount = document.querySelector(".cart-card-count");
 
-// Add to Cart button
+// Add to Cart button functionality 
 const buttons = document.querySelectorAll(".add-to-cart");
 
 // Update total items and amount in buying summary and cart icon
@@ -41,7 +41,7 @@ function updateSummary() {
     cartIconCount.textContent = items;
 }
 
-// Add item to cart
+// Add an item to cart 
 buttons.forEach(button => {
 
     button.addEventListener("click", function (event) {
