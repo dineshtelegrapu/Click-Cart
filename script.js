@@ -1,3 +1,30 @@
+// LOGIN PAGE
+
+const form = document.getElementById("loginForm");
+const password = document.getElementById("password");
+const showPassword = document.getElementById("showPassword");
+
+showPassword.addEventListener("change", () => {
+    password.type = showPassword.checked ? "text" : "password";
+});
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const pass = password.value;
+
+    if (email === "" || pass === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+    // Temporary demo login
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", email);
+
+    alert("Login Successful!");
+    window.location.href = "index.html";
+});
+
 // PRODUCTS PAGE
 
 const productSearchBar = document.querySelector(".search-bar");
