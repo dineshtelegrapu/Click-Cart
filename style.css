@@ -1,3 +1,99 @@
+.login-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-card{
+    width:380px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.login-card h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.login-card p{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:10px 0;
+    font-size:14px;
+}
+
+.options label{
+    display:flex;
+    gap:5px;
+    align-items:center;
+}
+
+.options input{
+    width:auto;
+    margin:0;
+}
+
+.options a{
+    text-decoration:none;
+    color:#0077ff;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:15px 0;
+}
+
+.remember input{
+    width:auto;
+    margin:0;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    background:#0077ff;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+button:hover{
+    background:#005fd4;
+}
+
+.signup{
+    margin-top:20px;
+}
+
+.signup a{
+    color:#0077ff;
+    text-decoration:none;
+}
+
 *{
     margin:0;
     padding:0;
