@@ -39,7 +39,6 @@ CSS
 JavaScript
 React.js
 
-
 Backend -
 
 Node.js
@@ -60,5 +59,7 @@ Author -
 
 T Dinesh
 Developer
+
+Email - dineshtelegrapu@gmail.com
 
 Click Cart is developed as a portfolio project to demonstrate full-stack development skills for internships and placement opportunities.
