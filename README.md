@@ -2,7 +2,9 @@
 
 Overview
 
-Click Cart is a full-stack e-commerce web application that allows users to browse products, add items to the cart, manage orders, and securely authenticate their accounts. The project demonstrates modern web development practices and showcases frontend, backend, database, and authentication skills.
+Click Cart is a full-stack e-commerce web application that allows users to browse products, add items to the cart, manage orders, and securely authenticate their accounts.
+
+The project demonstrates modern web development practices and showcases frontend, backend, database, and authentication skills.
 
 Features
 
@@ -59,6 +61,7 @@ Author -
 
 T Dinesh
 Developer
+
 GitHub: https://github.com/dineshtelegrapu
 
 Email - dineshtelegrapu@gmail.com
