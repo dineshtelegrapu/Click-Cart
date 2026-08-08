@@ -1,3 +1,54 @@
+// SIGNUP PAGE
+
+const signupForm = document.getElementById("signupForm");
+if (signupForm) {
+
+    const signupPassword = document.getElementById("signupPassword");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const showPassword = document.getElementById("signupShowPassword");
+    showPassword.addEventListener("change", () => {
+
+        if (showPassword.checked) {
+            signupPassword.type = "text";
+            confirmPassword.type = "text";
+        } else {
+            signupPassword.type = "password";
+            confirmPassword.type = "password";
+        }
+
+    });
+
+    signupForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+        const name = document.getElementById("signupName").value.trim();
+        const email = document.getElementById("signupEmail").value.trim();
+        const password = signupPassword.value;
+        const confirm = confirmPassword.value;
+
+        if (password !== confirm) {
+            alert("Passwords do not match!");
+            return;
+        }
+        if (password.length < 6) {
+            alert("Password must contain at least 6 characters.");
+            return;
+        }
+        const user = {
+            name: name,
+            email: email,
+            password: password
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+
+        alert("Account created successfully!");
+        window.location.href = "logs.html";
+    });
+}
+
+// LOGIN PAGE
+
 const form = document.getElementById("loginForm");
 const password = document.getElementById("password");
 const showPassword = document.getElementById("showPassword");
