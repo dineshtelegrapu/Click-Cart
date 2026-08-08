@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - Clik-Cart</title>
+
+    <link rel="stylesheet" href="login.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h1>Clik-Cart</h1>
+            <p>Create your account</p>
+            <form id="signupForm">
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Full Name"
+                    required
+                >
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Email Address"
+                    required
+                >
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Password"
+                    required
+                >
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                >
+                <label class="remember">
+                    <input type="checkbox" id="signupShowPassword">
+                    Show Password
+                </label>
+                <label class="remember">
+                    <input type="checkbox" id="terms" required>
+                    I agree to the Terms & Conditions
+                </label>
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+            <p class="signup">
+                Already have an account?
+                <a href="logs.html">Login</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
