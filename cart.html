@@ -8,73 +8,40 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+<div class="cart-head">
+    <p>Cart</p>
+    <input
+        type="text"
+        placeholder="Search products..."
+        class="search-bar"
+    >
+    <div class="cart-icon-container">
+        <img
+            src="cart-icon.png"
+            alt="Cart"
+            class="cart-icon"
+        >
+        <span class="cart-card-count">0</span>
+    </div>
+</div>
 
-    <div class="cart-head">
-        <p>Cart</p>
-        <input type="text" placeholder="Search products..." class="search-bar">
-        <div class="cart-icon-container">
-            <img src="cart-icon.png" alt="cart" class="cart-icon">
-            <span class="cart-card-count">0</span>
+<section class="cart-products">
+    <!-- Products will be loaded here from the products array in script.js -->
+    <div id="cart-container"></div>
+    <!-- Buying Box -->
+    <div class="buying-process-card">
+        <div class="buying-process-info">
+            <h2>Your Products</h2>
+            <p>
+                Subtotal
+                (<span id="total-items">0</span> items):
+                <strong id="total-amount">$0</strong>
+            </p>
+            <a href="#" id="proceed-to-buy">
+                Proceed to Buy
+            </a>
         </div>
     </div>
-
-    <section class="cart-products">
-
-        <div class="cart-card" data-price="599">
-            <img src="wallpaper.jpg" alt="Laptop">
-
-            <div class="cart-card-info">
-                <h3>Laptop</h3>
-                <p>High-performance laptop for work and gaming.</p>
-                <div class="price">$599</div>
-                <h4 class="cart-count">1</h4>
-                <a href="#" class="add-to-cart">Add 1 +</a>
-            </div>
-        </div>
-
-        <div class="cart-card" data-price="499">
-            <img src="wallpaper.jpg" alt="Smartphone">
-
-            <div class="cart-card-info">
-                <h3>Smartphone</h3>
-                <p>Latest smartphone with advanced camera.</p>
-                <div class="price">$499</div>
-                <h4 class="cart-count">1</h4>
-                <a href="#" class="add-to-cart">Add 1 +</a>
-            </div>
-        </div>
-
-        <div class="cart-card" data-price="349">
-            <img src="wallpaper.jpg" alt="Wireless Headphones">
-            <div class="cart-card-info">
-                <h3>Wireless Headphones</h3>
-                <p>Noise-cancelling premium sound quality.</p>
-                <div class="price">$349</div>
-                <h4 class="cart-count">1</h4>
-                <a href="#" class="add-to-cart">Add 1 +</a>
-            </div>
-        </div>
-
-        <div class="cart-card" data-price="499">
-            <img src="wallpaper.jpg" alt="Smart Watch">
-            <div class="cart-card-info">
-                <h3>Smart Watch</h3>
-                <p>Track fitness and notifications on the go.</p>
-                <div class="price">$499</div>
-                <h4 class="cart-count">1</h4>
-                <a href="#" class="add-to-cart">Add 1 +</a>
-            </div>
-        </div>
-
-        <div class="buying-process-card">
-            <div class="buying-process-info">
-                <h2>Your Products</h2>
-                <p>Subtotal (<span id="total-items">4</span> items):<strong id="total-amount">$1946</strong></p>
-                <a href="#">Proceed to Buy</a>
-            </div>
-        </div>
-
-    </section>
-
+</section>
 </body>
 </html>
