@@ -383,9 +383,7 @@ if (productSearchBar && document.querySelector(".product-card")) {
 const cartContainer =
     document.getElementById("cart-container");
 
-
 if (cartContainer) {
-
 
     // Get cart
     let cart =
@@ -393,20 +391,16 @@ if (cartContainer) {
             localStorage.getItem("cart")
         ) || [];
 
-
     const totalItems =
         document.getElementById("total-items");
 
-
     const totalAmount =
         document.getElementById("total-amount");
-
 
     const cartIconCount =
         document.querySelector(
             ".cart-card-count"
         );
-
 
     const searchBar =
         document.querySelector(".search-bar");
@@ -419,7 +413,6 @@ if (cartContainer) {
         // Empty cart
         if (cart.length === 0) {
             cartContainer.innerHTML = `
-
                 <div class="empty-cart">
                     <h2>Your cart is empty</h2>
                     <p>
@@ -429,28 +422,22 @@ if (cartContainer) {
                         Continue Shopping
                     </a>
                 </div>`;
-
             updateSummary();
             return;
 
         }
 
-
         // Display products
         cart.forEach((product, index) => {
-
 
             const card =
                 document.createElement("div");
 
-
             card.className =
                 "cart-card";
 
-
             card.dataset.price =
                 product.price;
-
 
             card.innerHTML = `
 
@@ -459,29 +446,23 @@ if (cartContainer) {
                     alt="${product.name}"
                 >
 
-
                 <div class="cart-card-info">
-
 
                     <h3>
                         ${product.name}
                     </h3>
 
-
                     <p>
                         ${product.description}
                     </p>
-
 
                     <div class="price">
                         $${product.price}
                     </div>
 
-
                     <h4 class="cart-count">
                         ${product.quantity}
                     </h4>
-
 
                     <a
                         href="#"
@@ -491,7 +472,6 @@ if (cartContainer) {
                         Add 1 +
                     </a>
 
-
                     <a
                         href="#"
                         class="remove-from-cart"
@@ -499,29 +479,15 @@ if (cartContainer) {
                     >
                         Remove
                     </a>
-
-
                 </div>
-
             `;
-
-
             cartContainer.appendChild(card);
-
         });
-
-
         addCartEvents();
-
         updateSummary();
-
     }
 
-
-
-    // ==================================================
     // ADD / REMOVE CART EVENTS
-    // ==================================================
 
     function addCartEvents() {
 
