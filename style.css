@@ -552,6 +552,31 @@ footer a{
     background:#ff822e;
 }
 
+.cart-card-info a:hover{
+    background:#ff822e;
+    transform: translateY(-3px);
+}
+
+.empty-cart{
+    text-align:center;
+    margin-top:50px;
+    font-size:1.1rem;
+}
+
+.empty-cart a{
+    text-decoration:none;
+    color:white;
+    background:#ff6600;
+    padding:10px 20px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.empty-cart a:hover{
+    background:#ff822e;
+    transform: translateY(-3px);
+}
+
 /* Buying Section */
 
 .buying-process-card{
