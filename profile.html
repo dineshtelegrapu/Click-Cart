@@ -3,82 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Clik-Cart</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Products - Clik-Cart</title>
 </head>
+
 <body>
 
     <nav>
         <h2>Clik-Cart</h2>
-            <input type="text" placeholder="Search products..." class="search-bar">
         <ul>
-            <li><a href="#">Language</a></li>
             <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
             <li><a href="cart.html">Cart</a></li>
+            <li><a href="profile.html">Profile</a></li>
         </ul>
     </nav>
+    <section class="profile-section">
 
-    <div class="breadcrumb">
-        <ul>
-            <li><a href="#">Filter</a></li>
-        </ul>
-    </div>
-    
-    <div class = "filter-section">
+        <div class="profile-card">
+
+            <div class="profile-header">
+                <div class="profile-image">
+                    <label for="file-upload" class="custom-file-upload">Add Image</label>
+                    <input id="file-upload" type="file" accept="image/*">
+                </div>
+                <h1 id="profile-name">User</h1>
+                <p id="profile-email">
+                    user@example.com
+                </p>
+
+            </div>
+            <div class="profile-info">
+                <h2>Account Information</h2>
+                <div class="info-row">
+                    <span>Name</span>
+                    <strong id="user-name">User</strong>
+                </div>
+                <div class="info-row">
+                    <span>Email</span>
+                    <strong id="user-email">user@example.com</strong>
+                </div>
+            </div>
+
+            <div class="profile-options">
+                <a href="cart.html" class="profile-option">
+                    <span>My Cart</span>
+                </a>
+                <a href="#" class="profile-option">
+                    <span>My Orders</span>
+                </a>
+                <a href="#" class="profile-option">
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="profile-option">
+                    <span>Account Settings</span>
+                </a>
+            </div>
+
+            <button id="logoutButton" class="logout-btn">
+                Logout
+            </button>
+        </div>
+    </section>
+
+    <footer>
         <p>
-            <li><a herf="#"></a></li>
-            <li><a herf="#"></a></li>
-            <li><a herf="#"></a></li>
-            <li><a herf="#"></a></li>
+            © 2026
+            <a href="index.html">Clik-Cart</a>.
+            All Rights Reserved.
         </p>
-    </div>
-
-    <section class="products">
-
-    <div class="product-container">
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Laptop</h3>
-                <p>High-performance laptop for work and gaming.</p>
-                <div class="price">$599</div>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Smartphone</h3>
-                <p>Latest smartphone with advanced camera.</p>
-                <div class="price">$499</div>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Wireless Headphones</h3>
-                <p>Noise-cancelling premium sound quality.</p>
-                <div class="price">$349</div>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Smart Watch</h3>
-                <p>Track fitness and notifications on the go.</p>
-                <div class="price">$499</div>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
-
-    </div>
-</section>
+    </footer>
 </body>
 </html>
