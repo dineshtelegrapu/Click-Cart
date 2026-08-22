@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Settings - Clik-Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>Clik-Cart</h2>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Settings -->
+    <section class="settings-section">
+
+        <div class="settings-card">
+
+            <h1>Account Settings</h1>
+
+            <p class="settings-subtitle">
+                Manage your Clik-Cart account
+            </p>
+
+
+            <!-- Personal Information -->
+            <div class="settings-group">
+
+                <h2>Personal Information</h2>
+
+                <label for="settingsName">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="settingsName"
+                    placeholder="Your name"
+                >
+
+
+                <label for="settingsEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="settingsEmail"
+                    placeholder="Your email"
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="settings-group">
+
+                <h2>Change Password</h2>
+
+                <label for="currentPassword">
+                    Current Password
+                </label>
+
+                <input
+                    type="password"
+                    id="currentPassword"
+                    placeholder="Current password"
+                >
+
+
+                <label for="newPassword">
+                    New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="New password"
+                >
+
+
+                <label for="confirmNewPassword">
+                    Confirm New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmNewPassword"
+                    placeholder="Confirm new password"
+                >
+
+            </div>
+
+
+            <!-- Show Password -->
+            <label class="settings-checkbox">
+
+                <input
+                    type="checkbox"
+                    id="settingsShowPassword"
+                >
+
+                Show Password
+
+            </label>
+
+
+            <!-- Buttons -->
+            <div class="settings-buttons">
+
+                <button
+                    type="button"
+                    id="saveSettings"
+                    class="save-settings-btn"
+                >
+                    Save Changes
+                </button>
+
+
+                <a
+                    href="profile.html"
+                    class="cancel-settings-btn"
+                >
+                    Cancel
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026
+            <a href="index.html">Clik-Cart</a>.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
