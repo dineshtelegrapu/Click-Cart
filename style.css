@@ -22,6 +22,24 @@
     margin-bottom: 30px;
 }
 
+/* Hide the native browser button completely */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the label to look like a premium button */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
 .profile-image {
     width: 90px;
     height: 90px;
@@ -219,6 +237,7 @@ button:hover{
     box-sizing:border-box;
     font-family:Arial, sans-serif;
 }
+
 body{
     background:#f4f4f4;
 }
