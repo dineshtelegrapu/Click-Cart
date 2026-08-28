@@ -6,8 +6,6 @@ Click Cart is a full-stack e-commerce web application that allows users to brows
 
 The project demonstrates modern web development practices and showcases frontend, backend, database, and authentication skills.
 
-Features
-
 User Features
 
 User Registration and Login
