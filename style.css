@@ -1025,8 +1025,9 @@ footer a{
 
 .empty-cart{
     text-align:center;
-    margin-top:50px;
+    margin-top:30px;
     font-size:1.1rem;
+    line-height: 2.2;
 }
 
 .empty-cart a{
