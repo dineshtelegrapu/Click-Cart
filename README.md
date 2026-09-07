@@ -1,67 +1,102 @@
-# Click-Cart - E-Commerce Website
-
-Overview
-
-Click Cart is a full-stack e-commerce web application that allows users to browse products, add items to the cart, manage orders, and securely authenticate their accounts.
-
-The project demonstrates modern web development practices and showcases frontend, backend, database, and authentication skills.
-
+Click-Cart - E-Commerce Website
+Click-Cart is a full-stack e-commerce web application that allows users to browse products, search for products, add items to their cart and wishlist, place orders, and manage their accounts.
+The project is built to demonstrate practical frontend and backend development skills.
+Features
 User Features
-
 User Registration and Login
-Secure Authentication
+User Authentication
 Browse Products
 Search Products
 Product Categories
-Product Details Page
+Product Details
 Add to Cart
 Update Cart Quantity
 Remove Items from Cart
-Checkout Process
+Wishlist
+Checkout
 Order History
+User Profile
+Account Settings
 Responsive Design
-
-Admin Features -
-
+Admin Features
 Add New Products
 Update Product Information
 Delete Products
 Manage Orders
 View Customer Details
-Dashboard for Product Management
-
-Tech Stack 
-
-Frontend -
-
+Product Management Dashboard
+Technologies Used
+Frontend
 HTML
 CSS
 JavaScript
 React.js
-
-Backend -
-
+Backend
 Node.js
 Express.js
-
-
-Database -
-
+Database
 MongoDB
-
-
-Authentication -
-
+Mongoose
+Authentication
 JWT (JSON Web Token)
 bcrypt Password Hashing
 
-Author -
+Project Structure -
 
-T Dinesh
-Developer
-
-GitHub: https://github.com/dineshtelegrapu
-
-Email - dineshtelegrapu@gmail.com
-
-Click Cart is developed as a portfolio project to demonstrate full-stack development skills for internships and placement opportunities.
+Click-Cart/
+│
+├── frontend/
+│   ├── index.html
+│   ├── products.html
+│   ├── cart.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── profile.html
+│   ├── settings.html
+│   ├── orders.html
+│   ├── wishlist.html
+│   │
+│   ├── css/
+│   │   ├── style.css
+│   │   └── login.css
+│   │
+│   └── js/
+│       ├── auth.js
+│       ├── profile.js
+│       ├── products.js
+│       ├── cart.js
+│       ├── wishlist.js
+│       ├── orders.js
+│       └── settings.js
+│
+├── backend/
+│   ├── server.js
+│   ├── package.json
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── productRoutes.js
+│   │   ├── cartRoutes.js
+│   │   ├── orderRoutes.js
+│   │   └── wishlistRoutes.js
+│   │
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── productController.js
+│   │   ├── cartController.js
+│   │   ├── orderController.js
+│   │   └── wishlistController.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Product.js
+│   │   ├── Order.js
+│   │   └── Wishlist.js
+│   │
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   │
+│   └── config/
+│       └── database.js
+│
+└── README.md
