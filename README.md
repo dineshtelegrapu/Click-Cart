@@ -510,6 +510,8 @@ Key areas include:
 
 **Your Name**
 
+https://github.com/dineshtelegrapu
+
 Built as a full-stack web development project to demonstrate practical software engineering skills.
 
 ---
@@ -517,6 +519,3 @@ Built as a full-stack web development project to demonstrate practical software 
 ## ⭐ Support
 
 If you found this project useful, consider giving the repository a ⭐ on GitHub.
-
-```
-```
