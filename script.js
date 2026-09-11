@@ -4,19 +4,15 @@
 
 // MY ORDERS PAGE
 
-const ordersContainer =
-    document.getElementById("orders-container");
+const ordersContainer = document.getElementById("orders-container");
 
 if (ordersContainer) {
 
-    const noOrders =
-        document.getElementById("no-orders");
+    const noOrders = document.getElementById("no-orders");
 
-    const user =
-        JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    const isLoggedIn =
-        localStorage.getItem("isLoggedIn");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
 
 
     // Check login
@@ -26,7 +22,9 @@ if (ordersContainer) {
 
         window.location.href = "login.html";
 
-    } else {
+    }
+    
+    else {
 
         const orders =
             JSON.parse(
@@ -249,202 +247,5 @@ if (saveSettings) {
         });
 
     }
-
-}
-
-// SIGNUP PAGE
-
-const signupForm = document.getElementById("signupForm");
-
-if (signupForm) {
-
-    const signupPassword =
-        document.getElementById("signupPassword");
-
-    const confirmPassword =
-        document.getElementById("confirmPassword");
-
-    const showPassword =
-        document.getElementById("signupShowPassword");
-
-
-    // Show / Hide Password
-    if (showPassword) {
-
-        showPassword.addEventListener("change", () => {
-
-            if (showPassword.checked) {
-
-                signupPassword.type = "text";
-                confirmPassword.type = "text";
-
-            } else {
-
-                signupPassword.type = "password";
-                confirmPassword.type = "password";
-
-            }
-
-        });
-
-    }
-
-
-    // Signup
-    signupForm.addEventListener("submit", (e) => {
-
-        e.preventDefault();
-
-
-        const name =
-            document.getElementById("signupName").value.trim();
-
-        const email =
-            document.getElementById("signupEmail").value.trim();
-
-        const password =
-            signupPassword.value;
-
-        const confirm =
-            confirmPassword.value;
-
-        // Check empty fields
-        if (name === "" || email === "" || password === "" || confirm === "") {
-            alert("Please fill in all fields.");
-
-            return;
-
-        }
-
-
-        // Check password length
-        if (password.length < 6) {
-
-            alert(
-                "Password must contain at least 6 characters."
-            );
-
-            return;
-
-        }
-
-
-        // Check passwords
-        if (password !== confirm) {
-            alert("Passwords do not match!");
-
-            return;
-
-        }
-
-
-        // Create user
-        const user = {
-            name: name,
-            email: email,
-            password: password
-
-        };
-
-
-        // Save user
-        localStorage.setItem(
-            "user",
-            JSON.stringify(user)
-        );
-
-        alert("Account created successfully!");
-
-        // Go to login page
-        window.location.href = "login.html";
-
-    });
-}
-
-// LOGIN PAGE
-
-const loginForm = document.getElementById("loginForm");
-
-if (loginForm) {
-    const password = document.getElementById("password");
-    const showPassword = document.getElementById("showPassword");
-
-    // Show / Hide Password
-    if (showPassword) {
-        showPassword.addEventListener("change", () => {
-
-            if (showPassword.checked) {
-                password.type = "text";
-            }
-            else {
-                password.type = "password";
-            }
-
-        });
-
-    }
-
-
-    // Login
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const pass = password.value;
-
-
-        // Check empty fields
-        if (email === "" || pass === "") {
-            alert("Please fill in all fields.");
-
-            return;
-
-        }
-
-        // Get saved user
-        const savedUser =
-            JSON.parse(localStorage.getItem("user"));
-
-
-        // Check if account exists
-        if (!savedUser) {
-            alert("Account not found. Please sign up first.");
-
-            return;
-
-        }
-
-        // Check email
-        if (email !== savedUser.email) {
-            alert("Incorrect email.");
-
-            return;
-
-        }
-
-        // Check password
-        if (pass !== savedUser.password) {
-            alert("Incorrect password.");
-
-            return;
-
-        }
-
-        // Login successful
-        localStorage.setItem(
-            "isLoggedIn",
-            "true"
-        );
-
-        localStorage.setItem(
-            "userEmail",
-            email
-        );
-
-        alert("Login Successful!");
-
-        // Go to home
-        window.location.href = "index.html";
-
-    });
 
 }
