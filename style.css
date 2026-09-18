@@ -865,7 +865,7 @@ footer a{
 }
 
 .product-container{
-    margin-top:10px;
+    margin-top:5px;
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
     gap:25px;
@@ -913,6 +913,7 @@ footer a{
     display:block;
     width:100%;
     margin-top:15px;
+    margin-bottom: 10px;
     padding:10px;
     background:#ff6600;
     color:white;
