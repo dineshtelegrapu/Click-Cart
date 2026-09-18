@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - Clik-Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="Frontend JS/checkout.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <h2>Clik-Cart</h2>
+
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="products.html">Products</a>
+            </li>
+            <li>
+                <a href="cart.html">Cart</a>
+            </li>
+            <li>
+                <a href="profile.html">Profile</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- CHECKOUT SECTION -->
+    <section class="checkout-section">
+        <h1>Checkout</h1>
+        <div class="checkout-container">
+
+            <!-- DELIVERY INFORMATION -->
+            <div class="checkout-card">
+                <h2>Delivery Information</h2>
+                <form id="checkoutForm">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="address">
+                            Address
+                        </label>
+                        <textarea
+                            id="address"
+                            placeholder="Enter your full address"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <div class="checkout-row">
+                        <div class="form-group">
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="City"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="state">
+                                State
+                            </label>
+                            <input
+                                type="text"
+                                id="state"
+                                placeholder="State"
+                                required
+                            >
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">
+                            PIN Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="Enter PIN code"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PAYMENT -->
+                    <h2>Payment Method</h2>
+                    <div class="payment-options">
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                                required
+                            >
+                            Cash on Delivery
+                        </label>
+
+
+                        <label class="payment-option">
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="card"
+                                required
+                            >
+                            Credit / Debit Card
+                        </label>
+
+
+                        <label class="payment-option">
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="upi"
+                                required
+                            >
+                            UPI
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="placeOrder"
+                        class="place-order-btn"
+                    >
+                        Place Order
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <div class="checkout-card order-summary">
+                <h2>Order Summary</h2>
+                <div id="checkout-products">
+
+                    <!-- Products will be loaded using JavaScript -->
+
+                </div>
+
+
+                <div class="summary-line">
+                    <span>
+                        Items
+                    </span>
+                    <strong id="checkout-items">
+                        0
+                    </strong>
+                </div>
+
+
+                <div class="summary-line">
+                    <span>
+                        Subtotal
+                    </span>
+                    <strong id="checkout-subtotal">
+                        $0
+                    </strong>
+                </div>
+
+
+                <div class="summary-line">
+                    <span>
+                        Delivery
+                    </span>
+                    <strong id="delivery-charge">
+                        Free
+                    </strong>
+                </div>
+                <hr>
+
+                <div class="summary-total">
+                    <span>
+                        Total
+                    </span>
+                    <strong id="checkout-total">
+                        $0
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026
+            <a href="index.html">
+                Clik-Cart
+            </a>.
+            All Rights Reserved.
+        </p>
+    </footer>
+</body>
+</html>
