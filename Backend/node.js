@@ -1,32 +1,35 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 dotenv.config();
-
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Test route
+// Routes
+const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutes");
+
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+
 app.get("/", (req, res) => {
-    res.json({
-        message: "Clik-Cart Backend is running!"
+    res.send("Clik-Cart Backend is running!");
+});
+
+// Connect to MongoDB before starting server
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("MongoDB connected successfully");
+
+        const PORT = process.env.PORT || 5500;
+        app.listen(PORT, () => {
+            console.log(`Server running on http://localhost:${PORT}`);
+        });
+    })
+    .catch((error) => {
+        console.error("MongoDB connection failed:", error.message);
     });
-});
-
-// Test API route
-app.get("/api/test", (req, res) => {
-    res.json({
-        message: "API is working!"
-    });
-});
-
-// Port
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
