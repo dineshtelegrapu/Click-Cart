@@ -1,126 +1,98 @@
-// PRODUCTS PAGE
 
-const productSearchBar = document.querySelector(".search-bar");
+const API_URL = "http://localhost:5500/api/products";
+const productsContainer = document.getElementById("products-container");
+const searchBar = document.getElementById("search-bar");
 
-if (productSearchBar && document.querySelector(".product-card")) {
+let allProducts = [];
 
-    const productCards = document.querySelectorAll(".product-card");
-    // Search Products
-    productSearchBar.addEventListener(
-        "input",
-        function () {
-            const searchText =
-                this.value.toLowerCase();
-
-
-            productCards.forEach(card => {
-
-                const productName =
-                    card
-                    .querySelector("h3")
-                    .textContent
-                    .toLowerCase();
-
-                if (productName.includes(searchText)) {
-                    card.style.display = "block";
-                }
-                else {
-                    card.style.display = "none";
-                }
-            });
+async function fetchProducts() {
+    try {
+        productsContainer.textContent = "Loading products...";
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error("Could not fetch products");
         }
-    );
+        const data = await response.json();
+        allProducts = data.products || [];
+        displayProducts(allProducts);
+    } catch (error) {
+        console.error("Product loading error:", error);
+        productsContainer.textContent = "Unable to load products. Check that the backend and database are running.";
+    }
+}
 
-    // Add To Cart
+function displayProducts(products) {
+    productsContainer.replaceChildren();
 
-    const addButtons =
-        document.querySelectorAll(".btn");
+    if (products.length === 0) {
+        productsContainer.textContent = "No products found.";
+        return;
+    }
 
-    addButtons.forEach(button => {
+    products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
 
-        button.addEventListener(
-            "click",
-            function () {
+        const image = document.createElement("img");
+        image.src = product.image;
+        image.alt = product.name;
+        image.onerror = () => {
+            image.onerror = null;
+            image.src = "https://placehold.co/300x250?text=Product";
+        };
 
+        const info = document.createElement("div");
+        info.className = "product-info";
 
-                // Check login
-                const isLoggedIn =
-                    localStorage.getItem("isLoggedIn");
+        const name = document.createElement("h3");
+        name.textContent = product.name;
 
-                if (isLoggedIn !== "true") {
-                    alert("Please login first.");
+        const description = document.createElement("p");
+        description.textContent = product.description;
 
-                    window.location.href =
-                        "login.html";
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent =
+            `₹${Number(product.price).toLocaleString("en-IN")}`;
 
-                    return;
-                }
+        const addButton = document.createElement("button");
+        addButton.className = "btn";
+        addButton.textContent = "Add to Cart";
+        addButton.disabled = Number(product.stock) <= 0;
 
-                const card =
-                    this.closest(".product-card");
+        if (addButton.disabled) {
+            addButton.textContent = "Out of Stock";
+        }
 
-                const name =
-                    card
-                    .querySelector("h3")
-                    .textContent;
+        addButton.addEventListener("click", () => {
+            // Connect this to your existing cart logic next.
+            alert(`${product.name} selected. Cart integration is next.`);
+        });
 
-                const description =
-                    card
-                    .querySelector("p")
-                    .textContent;
+        const wishlistButton = document.createElement("button");
+        wishlistButton.className = "wishlist-btn";
+        wishlistButton.textContent = "♡ Add to Wishlist";
 
-                const price =
-                    Number(
-                        card
-                        .querySelector(".price")
-                        .textContent
-                        .replace("$", ""));
-
-                const image =
-                    card
-                    .querySelector("img")
-                    .src;
-
-                // Get cart
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-                // Find product
-                const existingProduct =
-                    cart.find(item => item.name === name);
-
-                // Product already exists
-                if (existingProduct) {
-                    if (existingProduct.quantity < 10) {
-                        existingProduct.quantity++;
-                    }
-                    else {
-                        alert(
-                            "Maximum quantity (10) reached!"
-                        );
-                        return;
-                    }
-                }
-
-                // New product
-                else {
-                    cart.push({
-                        name: name,
-                        description: description,
-                        price: price,
-                        image: image,
-                        quantity: 1
-                    });
-                }
-
-                // Save cart
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-                alert(
-                    name + " added to cart!"
-                );
-            }
-        );
+        wishlistButton.addEventListener("click", () => {
+            // Connect's this to existing wishlist logic next.
+            alert(`${product.name} selected. Wishlist integration is next.`);
+        });
+        info.append(name, description, price, addButton, wishlistButton);
+        card.append(image, info);
+        productsContainer.appendChild(card);
     });
 }
+
+// Search products by name, description, or category
+searchBar.addEventListener("input", () => {
+    const query = searchBar.value.trim().toLowerCase();
+    const filteredProducts = allProducts.filter(product =>
+        product.name.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query)
+    );
+
+    displayProducts(filteredProducts);
+});
+
+fetchProducts();
