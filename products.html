@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Frontend CSS/style.css">
-    <script src="../Backend/models/product.js" defer></script>
     <title>Products - Clik-Cart</title>
 </head>
 <body>
 
     <nav>
         <h2>Clik-Cart</h2>
-            <input type="text" placeholder="Search products..." class="search-bar">
+        <input
+            type="text"
+            placeholder="Search products..."
+            class="search-bar"
+            id="search-bar"
+        >
+
         <ul>
             <li><a href="#">Language</a></li>
             <li><a href="../Frontend HTML/index.html">Home</a></li>
@@ -24,65 +29,25 @@
             <li><a href="#">Filter</a></li>
         </ul>
     </div>
-    
-    <div class = "filter-section">
-        <p>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-        </p>
+
+    <div class="filter-section">
+        <ul>
+            <li><a href="#">All Products</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Accessories</a></li>
+        </ul>
     </div>
 
+    <!-- Products -->
     <section class="products">
-
-    <div class="product-container">
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Laptop</h3>
-                <p>High-performance laptop for work and gaming.</p>
-                <div class="price">$599</div>
-                <button class="btn">Add to Cart</button>
-                <button class="wishlist-btn">♡ Add to Wishlist</button>
-            </div>
+        <h2>Our Products</h2>
+        <div class="product-container" id="products-container">
+            <p>Loading products...</p>
         </div>
+    </section>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Smartphone</h3>
-                <p>Latest smartphone with advanced camera.</p>
-                <div class="price">$499</div>
-                <button class="btn">Add to Cart</button>
-                <button class="wishlist-btn">♡ Add to Wishlist</button>
-            </div>
-        </div>
+    <!-- Product API JavaScript -->
+    <script src="../Frontend JS/products.js" defer></script>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Wireless Headphones</h3>
-                <p>Noise-cancelling premium sound quality.</p>
-                <div class="price">$349</div>
-                <button class="btn">Add to Cart</button>
-                <button class="wishlist-btn">♡ Add to Wishlist</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x250">
-            <div class="product-info">
-                <h3>Smart Watch</h3>
-                <p>Track fitness and notifications on the go.</p>
-                <div class="price">$499</div>
-                <button class="btn">Add to Cart</button>
-                <button class="wishlist-btn">♡ Add to Wishlist</button>
-            </div>
-        </div>
-
-    </div>
-</section>
 </body>
 </html>
