@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../Frontend CSS/style.css">
+
     <title>Products - Clik-Cart</title>
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav>
         <h2>Clik-Cart</h2>
+
         <input
             type="text"
             placeholder="Search products..."
@@ -24,26 +28,32 @@
         </ul>
     </nav>
 
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <ul>
-            <li><a href="#">Filter</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
         </ul>
     </div>
 
+    <!-- Filter Section -->
     <div class="filter-section">
         <ul>
-            <li><a href="#">All Products</a></li>
-            <li><a href="#">Electronics</a></li>
-            <li><a href="#">Accessories</a></li>
+            <li><a href="#" data-category="All">All Products</a></li>
+            <li><a href="#" data-category="Electronics">Electronics</a></li>
+            <li><a href="#" data-category="Accessories">Accessories</a></li>
         </ul>
     </div>
 
-    <!-- Products -->
+    <!-- Products Section -->
     <section class="products">
+
         <h2>Our Products</h2>
+
         <div class="product-container" id="products-container">
-            <p>Loading products...</p>
+            <p class="loading-message">Loading products...</p>
         </div>
+
     </section>
 
     <!-- Product API JavaScript -->
