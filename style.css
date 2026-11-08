@@ -758,29 +758,40 @@ input[type="file"] {
     border-color: #ff6600;
 }
 
-/* Breadcrumb */
+/* PRODUCTS PAGE */
+
+/* Search Bar */
+.search-bar {
+    width: 40%;
+    height: 45px;
+    padding: 10px 15px;
+    margin-right: 5%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-bar:focus {
+    border-color: #ff6600;
+}
+
+/* Breadcrumb / Filter Bar */
 .breadcrumb {
     background: rgb(100, 100, 100);
-    display: flex;
-    padding: 12px 7.5%;
+    padding: 15px 7.5%;
 }
 
-.breadcrumb ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.breadcrumb ul li a {
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-}
-
-/* Filter Section */
 .filter-section {
-    background-color: #f5f5f5;
-    padding: 15px 8%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.filter-title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .filter-section ul {
@@ -788,14 +799,14 @@ input[type="file"] {
     align-items: center;
     gap: 25px;
     list-style: none;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 }
 
 .filter-section ul li a {
-    color: #333;
+    color: white;
     font-size: 1rem;
     text-decoration: none;
-    font-weight: 500;
     transition: 0.3s;
 }
 
@@ -817,7 +828,6 @@ input[type="file"] {
 
 /* Product Container */
 .product-container {
-    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
@@ -916,18 +926,10 @@ input[type="file"] {
     grid-column: 1 / -1;
 }
 
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-footer a {
-    color: antiquewhite;
-    text-decoration: none;
+/* Out of Stock Button */
+.btn:disabled {
+    background: #999;
+    cursor: not-allowed;
 }
 
 /* Responsive Design */
@@ -954,13 +956,20 @@ footer a {
         );
         gap: 15px;
     }
-
-    .filter-section {
-        padding: 15px 5%;
-    }
 }
 
 @media (max-width: 480px) {
+
+    .filter-section {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .filter-section ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 
     .product-container {
         grid-template-columns: 1fr;
