@@ -1,13 +1,70 @@
+
 const API_URL = "http://localhost:5000/api/products";
+
 const productsContainer = document.getElementById("products-container");
 const searchBar = document.getElementById("search-bar");
 const categoryLinks = document.querySelectorAll(
     ".filter-section a[data-category]"
 );
+
 let allProducts = [];
 let selectedCategory = "All";
 
-// Fetch Products from Backend
+// ADD PRODUCT TO CART
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find(item =>
+        item.productId === product._id
+    );
+    const stock = Number(product.stock);
+    const maxQuantity = Math.min(10, stock);
+    if (maxQuantity <= 0) {
+        alert("Product is out of stock!");
+        return;
+    }
+    if (existingProduct) {
+        if (existingProduct.quantity >= maxQuantity) {
+            alert("Maximum available quantity reached!");
+            return;
+        }
+        existingProduct.quantity++;
+
+    }
+    else {
+        cart.push({
+            productId: product._id,
+            name: product.name,
+            image: product.image,
+            price: Number(product.price),
+            quantity: 1
+        });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${product.name} added to cart!`);
+}
+
+// ADD PRODUCT TO WISHLIST
+function addToWishlist(product) {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const alreadyExists = wishlist.some(item =>
+        item.productId === product._id
+    );
+    if (alreadyExists) {
+        alert("Product is already in your wishlist!");
+        return;
+    }
+    wishlist.push({
+        productId: product._id,
+        name: product.name,
+        image: product.image,
+        price: Number(product.price),
+        description: product.description
+    });
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    alert(`${product.name} added to wishlist!`);
+}
+
+// FETCH PRODUCTS FROM BACKEND
 async function fetchProducts() {
     try {
         productsContainer.textContent = "Loading products...";
@@ -18,15 +75,15 @@ async function fetchProducts() {
         const data = await response.json();
         allProducts = data.products || [];
         filterProducts();
+
     }
     catch (error) {
         console.error("Product loading error:", error);
-        productsContainer.textContent =
-            "Unable to load products. Check that the backend and database are running.";
+        productsContainer.textContent = "Unable to load products. Check that the backend and database are running.";
     }
 }
 
-// Display Products
+// DISPLAY PRODUCTS
 function displayProducts(products) {
     productsContainer.replaceChildren();
     if (products.length === 0) {
@@ -42,7 +99,6 @@ function displayProducts(products) {
         const image = document.createElement("img");
         image.src = product.image;
         image.alt = product.name;
-
         image.onerror = () => {
             image.onerror = null;
             image.src = "https://placehold.co/300x250?text=Product";
@@ -63,31 +119,30 @@ function displayProducts(products) {
         // Product Price
         const price = document.createElement("div");
         price.className = "price";
+
         price.textContent =
             `₹${Number(product.price).toLocaleString("en-IN")}`;
 
         // Add to Cart Button
         const addButton = document.createElement("button");
+
         addButton.className = "btn";
         addButton.textContent = "Add to Cart";
-
         addButton.disabled = Number(product.stock) <= 0;
-
         if (addButton.disabled) {
             addButton.textContent = "Out of Stock";
         }
 
         addButton.addEventListener("click", () => {
-            alert(`${product.name} selected. Cart integration is next.`);
+            addToCart(product);
         });
 
         // Wishlist Button
         const wishlistButton = document.createElement("button");
         wishlistButton.className = "wishlist-btn";
         wishlistButton.textContent = "♡ Add to Wishlist";
-
         wishlistButton.addEventListener("click", () => {
-            alert(`${product.name} selected. Wishlist integration is next.`);
+            addToWishlist(product);
         });
 
         // Append Elements
@@ -98,18 +153,14 @@ function displayProducts(products) {
             addButton,
             wishlistButton
         );
-
         card.append(image, info);
-
         productsContainer.appendChild(card);
     });
 }
 
-// Search and Category Filtering
+// SEARCH AND CATEGORY FILTERING
 function filterProducts() {
-
     const query = searchBar.value.trim().toLowerCase();
-
     const filteredProducts = allProducts.filter(product => {
 
         const matchesCategory =
@@ -121,24 +172,24 @@ function filterProducts() {
             product.name.toLowerCase().includes(query) ||
             product.description.toLowerCase().includes(query) ||
             product.category.toLowerCase().includes(query);
-
         return matchesCategory && matchesSearch;
     });
-
     displayProducts(filteredProducts);
 }
 
-// Category Filtering
+// CATEGORY FILTER EVENTS
 categoryLinks.forEach(link => {
     link.addEventListener("click", event => {
         event.preventDefault();
         selectedCategory = link.dataset.category;
         filterProducts();
+
     });
+
 });
 
-// Search Bar Event
+// SEARCH BAR EVENT
 searchBar.addEventListener("input", filterProducts);
 
-// Load Products
+// LOAD PRODUCTS
 fetchProducts();
