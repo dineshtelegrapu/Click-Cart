@@ -3,45 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your-Cart</title>
+
+    <title>Your Cart - Clik-Cart</title>
     <link rel="stylesheet" href="../Frontend CSS/style.css">
     <script src="../Frontend JS/cart.js" defer></script>
 </head>
 <body>
-<div class="cart-head">
-    <p>Cart</p>
-    <input
-        type="text"
-        placeholder="Search products..."
-        class="search-bar"
-    >
-    <div class="cart-icon-container">
-        <img
-            src="../Frontend Images/cart-icon.png"
-            alt="Cart"
-            class="cart-icon"
+    <!-- Cart Header -->
+    <div class="cart-head">
+        <p>Cart</p>
+        <input
+            type="text"
+            placeholder="Search products..."
+            class="search-bar"
         >
-    </div>
-    <span class="cart-card-count">0</span>
-</div>
 
-<section class="cart-products">
-    <!-- Products will be loaded here from the products array in script.js -->
-    <div id="cart-container"></div>
-    <!-- Buying Box -->
-    <div class="buying-process-card">
-        <div class="buying-process-info">
-            <h2>Your Products</h2>
-            <p>
-                Subtotal
-                (<span id="total-items">0</span> items):
-                <strong id="total-amount">$0</strong>
-            </p>
-            <a href="#" id="proceed-to-buy">
-                Proceed to Buy
-            </a>
+        <div class="cart-icon-container">
+            <img
+                src="../Frontend Images/cart-icon.png"
+                alt="Cart"
+                class="cart-icon"
+            >
         </div>
+        <span class="cart-card-count">0</span>
     </div>
-</section>
+    
+    <!-- Cart Products Section -->
+    <section class="cart-products">
+
+        <!-- Products loaded from localStorage -->
+        <div id="cart-container"></div>
+
+        <!-- Buying Box -->
+        <div class="buying-process-card">
+            <div class="buying-process-info">
+                <h2>Your Products</h2>
+                <p>
+                    Subtotal
+                    (<span id="total-items">0</span> items):
+                    <strong id="total-amount">₹0</strong>
+                </p>
+                <a href="checkout.html" id="proceed-to-buy">
+                    Proceed to Buy
+                </a>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
