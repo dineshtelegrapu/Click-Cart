@@ -128,6 +128,131 @@ nav ul li a{
     text-decoration:none;
 }
 
+/* FEATURED PRODUCTS SECTION */
+
+.products {
+    width: 100%;
+    padding: 60px 5%;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* PRODUCT CARD */
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* PRODUCT IMAGE */
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* CARD CONTENT */
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 19px;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+/* PRICE */
+
+.card-content .price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 18px;
+}
+
+/* BUTTON */
+
+.card-content button {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-content button:hover {
+    background-color: #0056b3;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .products {
+        padding: 40px 5%;
+    }
+
+    .products h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card img {
+        height: 230px;
+    }
+}
+
 /* FOOTER */
 
 footer {
