@@ -202,7 +202,7 @@ nav ul li a{
 .card-content .price {
     font-size: 20px;
     font-weight: 700;
-    color: #007bff;
+    color: #222;
     margin-bottom: 18px;
 }
 
@@ -211,18 +211,19 @@ nav ul li a{
 .card-content button {
     width: 100%;
     padding: 12px 15px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #FF6600;
+    color: #FFFFFF;
     border: none;
     border-radius: 6px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .card-content button:hover {
-    background-color: #0056b3;
+    background-color: #ff822e;
+    transform: translateY(-2px);
 }
 
 /* RESPONSIVE DESIGN */
