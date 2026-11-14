@@ -76,7 +76,7 @@ button{
     width:100%;
     padding:13px;
     border:none;
-    background:#0077ff;
+    background:#FF6600;
     color:white;
     border-radius:8px;
     cursor:pointer;
@@ -84,7 +84,7 @@ button{
 }
 
 button:hover{
-    background:#005fd4;
+    background:#ff822e;
 }
 
 .signup{
@@ -956,6 +956,91 @@ input[type="file"] {
 
 .search-bar:focus {
     border-color: #ff6600;
+}
+
+/* Navigation Menu */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 5px;
+    transition: color 0.3s ease;
+}
+
+/* LANGUAGE DROPDOWN */
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    padding: 5px 0;
+    margin: 0;
+    background-color: #252525;
+    border-radius: 6px;
+    overflow: hidden;
+    list-style: none;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.language-dropdown li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.language-dropdown li a {
+    display: block;
+    width: 100%;
+    padding: 11px 16px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.language-dropdown li a:hover {
+    background-color: #FF6600;
+    color: #FFFFFF;
+}
+
+/* SHOW DROPDOWN */
+
+.language-menu:hover .language-dropdown,
+.language-menu.active .language-dropdown {
+    display: block;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    nav ul {
+        gap: 12px;
+    }
+    nav ul li a {
+        font-size: 14px;
+    }
+    .language-dropdown {
+        min-width: 120px;
+    }
 }
 
 /* Breadcrumb / Filter Bar */
