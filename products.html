@@ -18,40 +18,41 @@
             placeholder="Search products..."
             class="search-bar"
             id="search-bar"
+            data-i18n="search-placeholder"
         >
 
         <ul>
             <li class="language-menu">
-                <a href="#" id="language-btn">Language ▼</a>
+                <button type="button" id="language-btn" data-i18n="language">Language ▼</button>
                 <ul class="language-dropdown" id="language-dropdown">
-                    <li><a href="#" data-lang="en">English</a></li>
-                    <li><a href="#" data-lang="hi">हिन्दी</a></li>
-                    <li><a href="#" data-lang="te">తెలుగు</a></li>
+                    <li><a href="#" data-lang="en" data-i18n="english">English</a></li>
+                    <li><a href="#" data-lang="hi" data-i18n="hindi">हिन्दी</a></li>
+                    <li><a href="#" data-lang="te" data-i18n="telugu">తెలుగు</a></li>
                 </ul>
             </li>
-            <li><a href="../Frontend HTML/index.html">Home</a></li>
-            <li><a href="../Frontend HTML/cart.html">Cart</a></li>
+            <li><a href="../Frontend HTML/index.html" data-i18n="home">Home</a></li>
+            <li><a href="../Frontend HTML/cart.html" data-i18n="cart">Cart</a></li>
         </ul>
     </nav>
 
     <!-- Breadcrumb / Filter Section -->
     <div class="breadcrumb">
         <div class="filter-section">
-            <span class="filter-title">Filter:</span>
+            <span class="filter-title" data-i18n="filter">Filter:</span>
             <ul>
-                <li><a href="#products-container" data-category="All">All Products</a></li>
-                <li><a href="#products-container" data-category="Electronics">Electronics</a></li>
-                <li><a href="#products-container" data-category="Accessories">Accessories</a></li>
+                <li><a href="#products-container" data-category="All" data-i18n="all-products">All Products</a></li>
+                <li><a href="#products-container" data-category="Electronics" data-i18n="electronics">Electronics</a></li>
+                <li><a href="#products-container" data-category="Accessories" data-i18n="accessories">Accessories</a></li>
             </ul>
         </div>
     </div>
     <!-- Products Section -->
     <section class="products">
 
-        <h2>Our Products</h2>
+        <h2 data-i18n="our-products">Our Products</h2>
 
         <div class="product-container" id="products-container">
-            <p class="loading-message">Loading products...</p>
+            <p class="loading-message" data-i18n="loading-products">Loading products...</p>
         </div>
 
     </section>
