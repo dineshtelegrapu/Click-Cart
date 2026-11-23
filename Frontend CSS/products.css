@@ -18,6 +18,22 @@
 
 /* Navigation Menu */
 
+#language-btn {
+    background: transparent;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#language-btn:hover {
+    color: #ff6600;
+}
+
 nav ul {
     display: flex;
     align-items: center;
