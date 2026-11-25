@@ -1,0 +1,157 @@
+/* ACCOUNT SETTINGS PAGE */
+
+.settings-section {
+    width: 100%;
+    min-height: 80vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SETTINGS CARD */
+
+.settings-card {
+    width: 100%;
+    max-width: 550px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.settings-card h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.settings-subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* SETTINGS GROUP */
+
+.settings-group {
+    margin-bottom: 25px;
+}
+
+.settings-group h2 {
+    font-size: 19px;
+    color: #333;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.settings-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.settings-group input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.settings-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* SHOW PASSWORD */
+
+.settings-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.settings-checkbox input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+
+.settings-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.save-settings-btn,
+.cancel-settings-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.save-settings-btn {
+    background: #007bff;
+    color: #fff;
+}
+
+.save-settings-btn:hover {
+    background: #0056b3;
+}
+
+.cancel-settings-btn {
+    background: #e5e5e5;
+    color: #333;
+}
+
+.cancel-settings-btn:hover {
+    background: #ccc;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+
+    .settings-section {
+        padding: 30px 15px;
+    }
+
+    .settings-card {
+        padding: 25px 20px;
+    }
+
+    .settings-card h1 {
+        font-size: 24px;
+    }
+
+    .settings-buttons {
+        flex-direction: column;
+    }
+
+    .save-settings-btn,
+    .cancel-settings-btn {
+        width: 100%;
+    }
+}
