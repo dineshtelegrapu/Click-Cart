@@ -5,17 +5,17 @@ const profileName = document.getElementById("profile-name");
 if (profileName) {
 
     const user = JSON.parse(localStorage.getItem("user"));
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const token = localStorage.getItem("token");
 
     // Check if user is logged in
-    if (!user || isLoggedIn !== "true") {
+    if (!user || !token) {
 
         alert("Please login first.");
 
-        window.location.href = "login.html";
+        window.location.href = "../Frontend HTML/login.html";
 
     }
-    
+
     else {
 
         // Display user information
@@ -26,7 +26,6 @@ if (profileName) {
 
     }
 
-
     // Logout
     const logoutButton = document.getElementById("logoutButton");
 
@@ -34,12 +33,15 @@ if (profileName) {
 
         logoutButton.addEventListener("click", () => {
 
+            // Clear login information
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userEmail");
 
             alert("You have been logged out.");
 
-            window.location.href = "login.html";
+            window.location.href = "../Frontend HTML/login.html";
 
         });
 
