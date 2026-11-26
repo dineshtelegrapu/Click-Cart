@@ -1,125 +1,184 @@
 // ACCOUNT SETTINGS PAGE
 
 const saveSettings = document.getElementById("saveSettings");
+
 if (saveSettings) {
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    const nameInput = document.getElementById("settingsName");
+    const emailInput = document.getElementById("settingsEmail");
+    const currentPassword = document.getElementById("currentPassword");
+    const newPassword = document.getElementById("newPassword");
+    const confirmNewPassword = document.getElementById("confirmNewPassword");
+    const showPassword = document.getElementById("settingsShowPassword");
 
-    if (!user) {
+    const token = localStorage.getItem("token");
 
+    let user = null;
+
+    // CHECK LOGIN
+    if (!token) {
         alert("Please login first.");
-        window.location.href = "login.html";
-
+        window.location.href = "../Frontend HTML/login.html";
     }
-    
+
     else {
 
-        const nameInput = document.getElementById("settingsName");
+        // LOAD USER PROFILE FROM BACKEND
+        const loadProfile = async () => {
 
-        const emailInput = document.getElementById("settingsEmail");
+            try {
+                const response = await fetch(
+                    "http://localhost:5000/api/auth/me",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        }
+                    }
+                );
 
-        const currentPassword = document.getElementById("currentPassword");
+                const data = await response.json();
 
-        const newPassword = document.getElementById("newPassword");
+                if (!response.ok) {
+                    throw new Error(data.message || "Unable to load profile.");
+                }
 
-        const confirmNewPassword = document.getElementById("confirmNewPassword");
+                user = data.user;
 
-        const showPassword = document.getElementById("settingsShowPassword");
+                nameInput.value = user.name;
+                emailInput.value = user.email;
+
+                // Update localStorage
+                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("userEmail", user.email);
+
+            }
+
+            catch (error) {
+                console.error("Profile loading error:", error);
+                alert(error.message || "Unable to load account details.");
+
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("userEmail");
+
+                window.location.href = "../Frontend HTML/login.html";
+            }
+        };
+
+        loadProfile();
 
 
-        // Load current information
-        nameInput.value = user.name;
-        emailInput.value = user.email;
-
-
-        // Show / Hide passwords
+        // SHOW / HIDE PASSWORD
         if (showPassword) {
 
             showPassword.addEventListener("change", () => {
 
-                const type =
-                    showPassword.checked
-                        ? "text"
-                        : "password";
+                const type = showPassword.checked ? "text" : "password";
 
                 currentPassword.type = type;
                 newPassword.type = type;
                 confirmNewPassword.type = type;
+
             });
         }
 
 
-        // Save settings
-        saveSettings.addEventListener("click", () => {
+        // SAVE SETTINGS
+        saveSettings.addEventListener("click", async () => {
 
             const newName = nameInput.value.trim();
-
             const newEmail = emailInput.value.trim();
 
             const currentPass = currentPassword.value;
-
             const newPass = newPassword.value;
-
             const confirmPass = confirmNewPassword.value;
 
-
-            if (newName === "" || newEmail === "") {
-
+            if (!newName || !newEmail) {
                 alert("Name and email cannot be empty.");
-
                 return;
-
             }
 
+            if (newPass !== "" || confirmPass !== "" || currentPass !== "") {
 
-            // Change password
-            if (newPass !== "" || confirmPass !== "") {
-
-                if (currentPass !== user.password) {
-                    alert("Current password is incorrect.");
-
+                if (!currentPass || !newPass || !confirmPass) {
+                    alert("Please fill in all password fields.");
                     return;
-
                 }
-
 
                 if (newPass.length < 6) {
                     alert("New password must contain at least 6 characters.");
-
                     return;
-
                 }
-
 
                 if (newPass !== confirmPass) {
                     alert("New passwords do not match.");
-
                     return;
-
                 }
-                user.password = newPass;
             }
 
+            // PREPARE DATA
+            const updatedData = {
+                name: newName,
+                email: newEmail
+            };
 
-            // Update user
-            user.name = newName;
-            user.email = newEmail;
+            if (newPass) {
+                updatedData.currentPassword = currentPass;
+                updatedData.newPassword = newPass;
+            }
 
+            try {
 
-            localStorage.setItem(
-                "user",
-                JSON.stringify(user)
-            );
+                saveSettings.disabled = true;
+                saveSettings.textContent = "Saving...";
 
+                const response = await fetch(
+                    "http://localhost:5000/api/auth/settings",
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(updatedData)
+                    }
+                );
 
-            localStorage.setItem(
-                "userEmail",
-                newEmail
-            );
+                const data = await response.json();
 
+                if (!response.ok) {
+                    alert(data.message || "Unable to update settings.");
+                    return;
+                }
 
-            alert("Settings saved successfully!");
-            window.location.href = "profile.html";
+                // UPDATE LOCALSTORAGE
+                user = data.user;
+
+                localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("userEmail", user.email);
+
+                alert("Account settings updated successfully!");
+
+                window.location.href = "../Frontend HTML/profile.html";
+
+            }
+
+            catch (error) {
+
+                console.error("Settings update error:", error);
+
+                alert("Unable to connect to the server. Please try again.");
+
+            }
+
+            finally {
+
+                saveSettings.disabled = false;
+                saveSettings.textContent = "Save Changes";
+
+            }
 
         });
 
