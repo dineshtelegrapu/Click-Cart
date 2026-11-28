@@ -183,6 +183,28 @@ const createOrder = async (req, res) => {
     }
 };
 
+// GET LOGGED-IN USER'S ORDERS
+const getMyOrders = async (req, res) => {
+    try {
+        const orders = await Order.find({
+            user: req.user.userId
+        }).sort({ createdAt: -1 });
+
+        res.status(200).json({
+            message: "Orders fetched successfully",
+            orders
+        });
+
+    } catch (error) {
+        console.error("Get orders error:", error);
+
+        res.status(500).json({
+            message: "Unable to fetch orders"
+        });
+    }
+};
+
 module.exports = {
-    createOrder
+    createOrder,
+    getMyOrders
 };

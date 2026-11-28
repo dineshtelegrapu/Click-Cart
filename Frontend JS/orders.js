@@ -7,110 +7,139 @@ if (ordersContainer) {
     const noOrders = document.getElementById("no-orders");
 
     const user = JSON.parse(localStorage.getItem("user"));
-
+    const token = localStorage.getItem("token");
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-
     // Check login
-    if (!user || isLoggedIn !== "true") {
+    if (!user || isLoggedIn !== "true" || !token) {
 
         alert("Please login first.");
-
         window.location.href = "login.html";
 
-    }
-    
-    else {
+    } else {
 
-        const orders =
-            JSON.parse(
-                localStorage.getItem("orders")
-            ) || [];
+        const fetchOrders = async () => {
 
+            try {
 
-        // No orders
-        if (orders.length === 0) {
-            noOrders.style.display = "block";
-        }
-        else {
-            noOrders.style.display = "none";
+                const response = await fetch(
+                    "http://localhost:5000/api/orders",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        }
+                    }
+                );
 
+                const data = await response.json();
 
-            // Display orders
-            orders.forEach(order => {
+                if (!response.ok) {
+                    throw new Error(data.message || "Unable to fetch orders");
+                }
 
-                const orderCard = document.createElement("div");
+                const orders = data.orders;
 
-                orderCard.className = "order-card";
+                ordersContainer.innerHTML = "";
 
-                let productsHTML = "";
-                order.products.forEach(product => {
+                // No orders
+                if (!orders || orders.length === 0) {
+                    noOrders.style.display = "block";
+                    return;
+                }
 
-                    productsHTML += `
-                        <div class="order-product">
-                            <img
-                                src="${product.image}"
-                                alt="${product.name}"
-                            >
+                noOrders.style.display = "none";
 
-                            <div class="order-product-info">
+                // Display orders
+                orders.forEach(order => {
 
-                                <h3>
-                                    ${product.name}
-                                </h3>
+                    const orderCard = document.createElement("div");
 
-                                <p>
-                                    Quantity:
-                                    ${product.quantity}
-                                </p>
+                    orderCard.className = "order-card";
 
-                                <p>
-                                    Price:
-                                    $${product.price}
-                                </p>
+                    let productsHTML = "";
+
+                    order.products.forEach(product => {
+
+                        productsHTML += `
+                            <div class="order-product">
+                                <img
+                                    src="${product.image}"
+                                    alt="${product.name}"
+                                >
+
+                                <div class="order-product-info">
+
+                                    <h3>${product.name}</h3>
+
+                                    <p>
+                                        Quantity: ${product.quantity}
+                                    </p>
+
+                                    <p>
+                                        Price: ₹${product.price}
+                                    </p>
+
+                                </div>
                             </div>
+                        `;
+
+                    });
+
+                    const orderDate = new Date(
+                        order.createdAt
+                    ).toLocaleString("en-IN");
+
+                    orderCard.innerHTML = `
+
+                        <div class="order-header">
+
+                            <h3>
+                                Order #${order._id}
+                            </h3>
+
+                            <span class="order-status">
+                                ${order.status}
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Date: ${orderDate}
+                        </p>
+
+                        ${productsHTML}
+
+                        <div class="order-footer">
+
+                            <span class="order-total">
+                                Total: ₹${order.total}
+                            </span>
 
                         </div>
 
                     `;
 
+                    ordersContainer.appendChild(orderCard);
+
                 });
 
-                orderCard.innerHTML = `
+            } catch (error) {
 
-                    <div class="order-header">
+                console.error("Fetch orders error:", error);
 
-                        <h3>
-                            Order #${order.id}
-                        </h3>
+                noOrders.style.display = "none";
 
-                        <span class="order-status">
-                            ${order.status}
-                        </span>
-
-                    </div>
-
-                    <p>
-                        Date: ${order.date}
-                    </p>
-
-                    ${productsHTML}
-
-                    <div class="order-footer">
-
-                        <span class="order-total">
-                            Total: $${order.total}
-                        </span>
-
-                    </div>
-
+                ordersContainer.innerHTML = `
+                    <p>Unable to load orders.
+                    Please refresh the page and try again.</p>
                 `;
 
-                ordersContainer.appendChild(orderCard);
+            }
 
-            });
+        };
 
-        }
+        fetchOrders();
 
     }
 
